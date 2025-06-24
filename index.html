@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Systems - Chapter 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background: #f6f8fa; }
+    nav {
+      position:fixed;top:0;left:0;width:210px;height:100vh;background:#2266aa;color:#fff;
+      padding:30px 0 0 0;z-index:100;box-shadow:2px 0 10px rgba(0,0,0,0.07);
+      display:flex;flex-direction:column;align-items:center;
+    }
+    nav h2 { font-size:1.3em;margin-bottom:20px; }
+    nav a {
+      color:#fff;text-decoration:none;display:block;
+      padding:10px 0;width:100%;text-align:center;font-size:1em;
+      border-bottom:1px solid rgba(255,255,255,0.07);transition:background 0.2s;
+    }
+    nav a:hover { background:#1a4e7b; }
+    .main-content { margin-left:220px;padding:28px 16px 40px 16px;max-width:900px; }
+    .section-title { color:#2266aa;margin-top:36px; }
+    table { width:100%;border-collapse:collapse;margin-bottom:24px; }
+    th,td { border:1px solid #bbb;padding:8px 10px;text-align:left; }
+    th { background:#f2f2f2; }
+    .tip-box { background:#e7f3fe;padding:12px;border-left:4px solid #2196F3;margin-top:16px;border-radius:6px; }
+    .quiz-container {
+      max-width:700px;background:#f9f9f9;padding:18px 24px;border-radius:8px;
+      margin:24px auto;box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+    .quiz-q { margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid #eee; }
+    .quiz-q:last-child { border-bottom:none; }
+    .quiz-q label { display:block;margin:4px 0 0 0;cursor:pointer; }
+    .quiz-btn {
+      background:#2196F3;color:#fff;border:none;padding:10px 28px;border-radius:5px;font-size:1.1em;cursor:pointer;margin-top:16px;
+    }
+    .quiz-btn:hover { background:#1769aa; }
+    #quiz-result {
+      display:none;margin-top:24px;padding:16px;background:#e7f3fe;
+      border-left:4px solid #2196F3;border-radius:6px;font-size:1.1em;
+    }
+    @media (max-width:900px) {
+      .main-content { margin-left:0;padding:18px 4vw; }
+      nav { position:static;width:100vw;height:auto;flex-direction:row;justify-content:flex-start;box-shadow:none;background:#2266aa; }
+      nav h2 { display:none; }
+      nav a { font-size:0.97em;padding:10px 8px;width:auto;border-bottom:none;border-right:1px solid rgba(255,255,255,0.07);}
+      nav a:last-child { border-right:none; }
+    }
+    html { scroll-behavior:smooth; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Sections</h2>
+    <a href="#summary">Summary</a>
+    <a href="#formulas">Formulas</a>
+    <a href="#examples">Examples</a>
+    <a href="#mcq">MCQs</a>
+    <a href="#shortq">Short Qs</a>
+    <a href="#longq">Long Qs</a>
+    <a href="#takeaways">Takeaways</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+  <div class="main-content">
+
+    <h2 id="summary" class="section-title">Chapter 1: Number Systems – Summary Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Key Concepts &amp; Definitions</th>
+          <th>Formulas / Examples</th>
+          <th>Takeaways</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rational Numbers</td>
+          <td>Can be written as p/q, where p, q are integers and q ≠ 0</td>
+          <td>Example: 1/2, -3/4, 5</td>
+          <td>Decimal expansion is either terminating or non-terminating recurring</td>
+        </tr>
+        <tr>
+          <td>Irrational Numbers</td>
+          <td>Cannot be written as p/q (with p, q integers, q ≠ 0)</td>
+          <td>Example: √2, π</td>
+          <td>Decimal expansion is non-terminating, non-recurring</td>
+        </tr>
+        <tr>
+          <td>Real Numbers</td>
+          <td>All rational and irrational numbers together</td>
+          <td>-</td>
+          <td>Real numbers have decimal expansions (either terminating, recurring, or non-recurring)</td>
+        </tr>
+        <tr>
+          <td>Locating on Number Line</td>
+          <td>Both rational and irrational numbers can be represented on the number line</td>
+          <td>Example: √13 can be located using Pythagoras theorem</td>
+          <td>Use geometric construction for irrationals</td>
+        </tr>
+        <tr>
+          <td>Operations</td>
+          <td>Addition/subtraction of rational &amp; irrational numbers</td>
+          <td>r (rational) + s (irrational) = irrational</td>
+          <td>Product of rational and irrational (except zero) is irrational</td>
+        </tr>
+        <tr>
+          <td>Decimal Expansions</td>
+          <td>Rational: terminating or non-terminating recurring<br>Irrational: non-terminating, non-recurring</td>
+          <td>-</td>
+          <td>Use decimal expansion to identify the nature of a number</td>
+        </tr>
+        <tr>
+          <td>Rationalisation</td>
+          <td>Removing surds from denominator</td>
+          <td>Example: Rationalise 1/(√7 - 2)</td>
+          <td>Multiply numerator and denominator by conjugate</td>
+        </tr>
+        <tr>
+          <td>Laws of Exponents</td>
+          <td>For positive real numbers a, b, and rational numbers p, q:</td>
+          <td>
+            1. a<sup>p</sup> × a<sup>q</sup> = a<sup>p+q</sup><br>
+            2. (a<sup>p</sup>)<sup>q</sup> = a<sup>pq</sup><br>
+            3. a<sup>p</sup> × b<sup>p</sup> = (ab)<sup>p</sup><br>
+            4. a<sup>p</sup> / a<sup>q</sup> = a<sup>p-q</sup>
+          </td>
+          <td>Exponents follow specific algebraic rules</td>
+        </tr>
+        <tr>
+          <td>Examples of Classification</td>
+          <td>Identify rational/irrational numbers</td>
+          <td>0.14 (rational), 0.4014001400014... (irrational), √7 (irrational), 9/27 (rational)</td>
+          <td>Test using decimal expansion, form, and properties</td>
+        </tr>
+        <tr>
+          <td>Between Rational Numbers</td>
+          <td>There are infinitely many rational numbers between any two rational numbers</td>
+          <td>-</td>
+          <td>Rational numbers are dense on the number line</td>
+        </tr>
+        <tr>
+          <td>Sum/Product of Irrationals</td>
+          <td>Sum or product of two irrationals can be rational in special cases</td>
+          <td>(√3 + √2) + (√3 - √2) = 2√3 (irrational);<br>(√3 + √2) × (√3 - √2) = 1 (rational)</td>
+          <td>Not always irrational; depends on numbers chosen</td>
+        </tr>
+        <tr>
+          <td>Square Roots</td>
+          <td>√a × √b = √(ab) (for a, b &gt; 0)</td>
+          <td>√2 × √8 = √16 = 4</td>
+          <td>Useful in simplification</td>
+        </tr>
+        <tr>
+          <td>Rationalising Denominator</td>
+          <td>Multiply by conjugate to remove surd from denominator</td>
+          <td>1/(√7-2) × (√7+2)/(√7+2)</td>
+          <td>Standard technique in surd simplification</td>
+        </tr>
+        <tr>
+          <td>Converting Recurring Decimals</td>
+          <td>Express as p/q</td>
+          <td>0.123 = 111/900</td>
+          <td>Use algebraic manipulation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="formulas" class="section-title">Quick Reference: Important Formulas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Formula</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>a<sup>p</sup> × a<sup>q</sup> = a<sup>p+q</sup></td>
+          <td>Product of powers with same base</td>
+        </tr>
+        <tr>
+          <td>(a<sup>p</sup>)<sup>q</sup> = a<sup>pq</sup></td>
+          <td>Power of a power</td>
+        </tr>
+        <tr>
+          <td>a<sup>p</sup> × b<sup>p</sup> = (ab)<sup>p</sup></td>
+          <td>Product of same powers</td>
+        </tr>
+        <tr>
+          <td>a<sup>p</sup> / a<sup>q</sup> = a<sup>p-q</sup></td>
+          <td>Division of powers with same base</td>
+        </tr>
+        <tr>
+          <td>√a × √b = √(ab)</td>
+          <td>Product of square roots</td>
+        </tr>
+        <tr>
+          <td>Rationalisation</td>
+          <td>Multiply numerator &amp; denominator by conjugate</td>
+        </tr>
+        <tr>
+          <td>Decimal to fraction</td>
+          <td>Use algebraic method for recurring decimals</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="examples" class="section-title">Illustrative Examples</h2>
+    <ol>
+      <li><b>Express <span style="color:blue;">0.123&#773;</span> in the form <i>p/q</i>.</b><br>
+        <b>Solution:</b> Let x = 0.123123123...<br>
+        1000x = 123.123123...<br>
+        1000x - x = 123.123123... - 0.123123... = 123<br>
+        999x = 123 ⇒ x = 123/999 = 41/333
+      </li>
+      <li><b>Locate <span style="color:blue;">√13</span> on the number line.</b><br>
+        <b>Solution:</b> Write 13 as 9 + 4 = 3<sup>2</sup> + 2<sup>2</sup>. On the number line, take OA = 3 units. Draw AB = 2 units perpendicular to OA. Join OB.<br>
+        By Pythagoras theorem, OB = √(3<sup>2</sup> + 2<sup>2</sup>) = √13.
+      </li>
+      <li><b>Simplify: (<span style="color:blue;">3 + √5</span>)(<span style="color:blue;">3 - √5</span>).</b><br>
+        <b>Solution:</b> (3 + √5)(3 - √5) = 9 - 5 = 4.
+      </li>
+      <li><b>Rationalise the denominator of <span style="color:blue;">1/(√7 - 2)</span>.</b><br>
+        <b>Solution:</b> Multiply numerator and denominator by (√7 + 2):<br>
+        (√7 + 2)/(7 - 4) = (√7 + 2)/3.
+      </li>
+      <li><b>Find three rational numbers between 0.1 and 0.11.</b><br>
+        <b>Solution:</b> 0.101, 0.105, 0.109
+      </li>
+    </ol>
+
+    <h2 id="mcq" class="section-title">Multiple Choice Questions (MCQs)</h2>
+    <ol>
+      <li>Every rational number is<br>
+        (A) a natural number<br>
+        (B) an integer<br>
+        <b>(C) a real number</b><br>
+        (D) a whole number
+      </li>
+      <li>Between two rational numbers<br>
+        (A) there is no rational number<br>
+        (B) there is exactly one rational number<br>
+        <b>(C) there are infinitely many rational numbers</b><br>
+        (D) there are only rational numbers and no irrational numbers
+      </li>
+      <li>Decimal representation of a rational number cannot be<br>
+        (A) terminating<br>
+        (B) non-terminating<br>
+        (C) non-terminating repeating<br>
+        <b>(D) non-terminating non-repeating</b>
+      </li>
+      <li>The product of any two irrational numbers is<br>
+        (A) always an irrational number<br>
+        (B) always a rational number<br>
+        (C) always an integer<br>
+        <b>(D) sometimes rational, sometimes irrational</b>
+      </li>
+      <li>The decimal expansion of the number √2 is<br>
+        (A) a finite decimal<br>
+        (B) 1.41421<br>
+        (C) non-terminating recurring<br>
+        <b>(D) non-terminating non-recurring</b>
+      </li>
+    </ol>
+    <p><b>Answers:</b> 1-(C), 2-(C), 3-(D), 4-(D), 5-(D)</p>
+
+    <h2 id="shortq" class="section-title">Short Answer Questions (with Answers)</h2>
+    <ol>
+      <li><b>Are there two irrational numbers whose sum and product both are rationals? Justify.</b><br>
+        <b>Answer:</b> Yes. (√3 + √2) and (√3 - √2) are two irrational numbers.<br>
+        Their sum: (√3 + √2) + (√3 - √2) = 2√3 (irrational)<br>
+        Their product: (√3 + √2)(√3 - √2) = 1 (rational).
+      </li>
+      <li><b>Is x + y necessarily irrational if x is rational and y is irrational?</b><br>
+        <b>Answer:</b> Yes, the sum is always irrational. For example, 1 (rational) + √2 (irrational) = 1 + √2 (irrational).
+      </li>
+      <li><b>Express 0.888... in the form p/q.</b><br>
+        <b>Answer:</b> Let x = 0.888...<br>
+        10x = 8.888...<br>
+        10x - x = 8<br>
+        9x = 8 ⇒ x = 8/9
+      </li>
+      <li><b>Classify the following as rational or irrational: (i) 196, (ii) √18, (iii) 9/27, (iv) √28/343</b><br>
+        <b>Answer:</b><br>
+        (i) 196: Rational<br>
+        (ii) √18: Irrational<br>
+        (iii) 9/27: Rational<br>
+        (iv) √28/343: Irrational
+      </li>
+    </ol>
+
+    <h2 id="longq" class="section-title">Long Answer Questions (with Answers)</h2>
+    <ol>
+      <li><b>If a = 5 + 2√6 and b = 1/a, find the value of a<sup>2</sup> + b<sup>2</sup>.</b><br>
+        <b>Answer:</b> a = 5 + 2√6, b = 1/(5 + 2√6) = 5 - 2√6. a<sup>2</sup> + b<sup>2</sup> = 98
+      </li>
+      <li><b>Express 0.6&#773; + 0.7&#773; + 0.47&#773; in the form p/q.</b><br>
+        <b>Answer:</b> 0.6&#773; = 2/3, 0.7&#773; = 7/9, 0.47&#773; = 47/99. Sum = 190/99
+      </li>
+      <li><b>If a = 3 + 2√5, find the value of (a - 1)/(a + 1).</b><br>
+        <b>Answer:</b> (a - 1)/(a + 1) = 3 - √5
+      </li>
+    </ol>
+
+    <h2 id="takeaways" class="section-title">Key Takeaways</h2>
+    <ul>
+      <li><b>Rational numbers</b> can be written as fractions; <b>irrational numbers</b> cannot.</li>
+      <li><b>Decimal expansions</b> help identify the nature of numbers.</li>
+      <li><b>Rationalisation</b> is a standard technique for simplifying surds.</li>
+      <li><b>Laws of exponents</b> are fundamental for manipulating powers.</li>
+      <li><b>Sum and product</b> of irrationals may sometimes be rational.</li>
+      <li><b>Infinite rationals</b> exist between any two rationals.</li>
+      <li><b>Geometric methods</b> can be used to represent irrationals on the number line.</li>
+    </ul>
+    <div class="tip-box">
+      <b>Tip:</b> Practice the exercises for mastery, and always check decimal expansions to classify numbers!
+    </div>
+
+    <h2 id="quiz" class="section-title">Interactive Quiz: Test Your Understanding</h2>
+    <div class="quiz-container">
+      <form id="numberSystemsQuiz">
+        <div class="quiz-q">
+          <b>1. Every rational number is</b>
+          <label><input type="radio" name="q1" value="A"> (A) a natural number</label>
+          <label><input type="radio" name="q1" value="B"> (B) an integer</label>
+          <label><input type="radio" name="q1" value="C"> (C) a real number</label>
+          <label><input type="radio" name="q1" value="D"> (D) a whole number</label>
+        </div>
+        <div class="quiz-q">
+          <b>2. Between two rational numbers</b>
+          <label><input type="radio" name="q2" value="A"> (A) there is no rational number</label>
+          <label><input type="radio" name="q2" value="B"> (B) there is exactly one rational number</label>
+          <label><input type="radio" name="q2" value="C"> (C) there are infinitely many rational numbers</label>
+          <label><input type="radio" name="q2" value="D"> (D) there are only rational numbers and no irrational numbers</label>
+        </div>
+        <div class="quiz-q">
+          <b>3. Decimal representation of a rational number cannot be</b>
+          <label><input type="radio" name="q3" value="A"> (A) terminating</label>
+          <label><input type="radio" name="q3" value="B"> (B) non-terminating</label>
+          <label><input type="radio" name="q3" value="C"> (C) non-terminating repeating</label>
+          <label><input type="radio" name="q3" value="D"> (D) non-terminating non-repeating</label>
+        </div>
+        <div class="quiz-q">
+          <b>4. The product of any two irrational numbers is</b>
+          <label><input type="radio" name="q4" value="A"> (A) always an irrational number</label>
+          <label><input type="radio" name="q4" value="B"> (B) always a rational number</label>
+          <label><input type="radio" name="q4" value="C"> (C) always an integer</label>
+          <label><input type="radio" name="q4" value="D"> (D) sometimes rational, sometimes irrational</label>
+        </div>
+        <div class="quiz-q">
+          <b>5. The decimal expansion of the number √2 is</b>
+          <label><input type="radio" name="q5" value="A"> (A) a finite decimal</label>
+          <label><input type="radio" name="q5" value="B"> (B) 1.41421</label>
+          <label><input type="radio" name="q5" value="C"> (C) non-terminating recurring</label>
+          <label><input type="radio" name="q5" value="D"> (D) non-terminating non-recurring</label>
+        </div>
+        <button type="button" class="quiz-btn" onclick="gradeQuiz()">Submit Quiz</button>
+      </form>
+      <div id="quiz-result"></div>
+    </div>
+  </div>
+  <script>
+    function gradeQuiz() {
+      var answers = {q1:"C",q2:"C",q3:"D",q4:"D",q5:"D"};
+      var total = Object.keys(answers).length, score = 0, unanswered = [];
+      for (var q in answers) {
+        var radios = document.getElementsByName(q), answered = false;
+        for (var i=0; i<radios.length; i++) {
+          if (radios[i].checked) {
+            answered = true;
+            if (radios[i].value === answers[q]) score++;
+            break;
+          }
+        }
+        if (!answered) unanswered.push(q);
+      }
+      var resultDiv = document.getElementById("quiz-result");
+      if (unanswered.length > 0) {
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = "<b>Please answer all questions before submitting.</b>";
+        return;
+      }
+      var msg = "<b>Your Score: " + score + " / " + total + "</b><br><br>";
+      if (score === total) {
+        msg += "🎉 <b>Excellent! You got all correct!</b>";
+      } else if (score >= total * 0.8) {
+        msg += "👏 <b>Great job! Review the ones you missed.</b>";
+      } else if (score >= total * 0.5) {
+        msg += "👍 <b>Good effort. Review the chapter and try again!</b>";
+      } else {
+        msg += "💡 <b>Keep practicing! Review the chapter and try again.</b>";
+      }
+      msg += "<br><br><a href='#quiz' onclick='window.location.reload();return false;'>Try Again</a>";
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = msg;
+      window.scrollTo({top: resultDiv.offsetTop-40, behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
